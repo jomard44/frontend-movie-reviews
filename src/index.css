@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+body{
+  text-transform: capitalize;
+  background-color: rgb(242, 192, 101,0.20);
+}
