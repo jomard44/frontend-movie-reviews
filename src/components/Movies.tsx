@@ -13,7 +13,7 @@ export default function Movies({ movies }: { movies: Movie[] }) {
       <h1 className="text-3xl font-bold text-center text-amber-900 mb-8 tracking-wide">
         Movies
       </h1>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {movies.map((movie) => (
           <div
             key={movie.id}

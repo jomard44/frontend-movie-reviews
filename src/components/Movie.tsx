@@ -40,9 +40,15 @@ export default function Movie({ movies }: { movies: MovieData[] }) {
     <div className="min-h-screen bg-amber-50 px-6 py-8">
       <Link to="/">View all movies</Link>
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
-        <img src={movie.imageUrl ?? ""} alt={movie.title} className="w-full h-80 object-cover" />
+        <img
+          src={movie.imageUrl ?? ""}
+          alt={movie.title}
+          className="w-full h-52 sm:h-80 object-cover"
+        />
         <div className="p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{movie.title}</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            {movie.title}
+          </h1>
           <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-6">
             <span>{year}</span>
             <span>{movie.runTime} min</span>
@@ -60,7 +66,10 @@ export default function Movie({ movies }: { movies: MovieData[] }) {
           <p className="text-gray-500">No reviews yet.</p>
         ) : (
           reviews.map((review) => (
-            <div key={review.id} className="bg-white rounded-xl shadow p-6 mb-4">
+            <div
+              key={review.id}
+              className="bg-white rounded-xl shadow p-6 mb-4"
+            >
               <p className="font-bold text-gray-800">{review.criticName}</p>
               <p className="text-amber-600 font-semibold">{review.score} / 5</p>
               <p className="text-gray-700 mt-2">{review.reviewText}</p>
