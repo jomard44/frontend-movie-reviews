@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 interface Movie {
   id: number;
-  image: string;
+  imageUrl: string | null;
   title: string;
   averageScore: number;
 }
@@ -20,7 +20,7 @@ export default function Movies({ movies }: { movies: Movie[] }) {
             className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300"
           >
             <img
-              src={movie.image}
+              src={movie.imageUrl ?? ""}
               alt={movie.title}
               className="w-full h-52 object-cover"
             />
