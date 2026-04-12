@@ -1,4 +1,6 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movies from "./components/Movies.tsx";
+import Movie from "./components/Movie.tsx";
 import image from "./images/movie.png";
 
 const sampleMovies = [
@@ -41,7 +43,14 @@ const sampleMovies = [
 ];
 
 function App() {
-  return <Movies movies={sampleMovies} />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Movies movies={sampleMovies} />} />
+        <Route path="/:id" element={<Movie movies={sampleMovies} />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface Movie {
   id: number;
   image: string;
@@ -29,6 +31,7 @@ export default function Movies({ movies }: { movies: Movie[] }) {
               <p className="text-sm text-amber-600 font-semibold mb-4">
                 {movie.averageScore.toFixed(1)} / 5
               </p>
+              <Link to={`/${movie.id}`}>Learn more</Link>
             </div>
           </div>
         ))}
