@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface Movie {
   id: number;
@@ -8,13 +9,28 @@ interface Movie {
 }
 
 export default function Movies({ movies }: { movies: Movie[] }) {
+  const [search, setSearch] = useState("");
+
+  const filtered = movies.filter((m) =>
+    m.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-amber-50 px-6 py-8">
       <h1 className="text-3xl font-bold text-center text-amber-900 mb-8 tracking-wide">
         Movies
       </h1>
+      <div className="max-w-md mx-auto mb-8">
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full px-4 py-2 rounded-xl border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white shadow-sm"
+        />
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {movies.map((movie) => (
+        {filtered.map((movie) => (
           <div
             key={movie.id}
             className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300"
